@@ -16,14 +16,6 @@ function sleep(milliseconds) {
     }
 }
 
-function change()
-{
-    var elem = document.getElementById("startButton");
-    if (elem.value=="Begin") elem.value = "Pause";
-    else elem.value = "Begin";
-    started = !started;
-}
-
 let gridArr;
 let cols;
 let rows;
@@ -174,4 +166,14 @@ function getNeighbors(gridArr, x, y) {
     }
     totalNeighbors -= gridArr[x][y];
     return totalNeighbors;
+}
+
+function between(x, min, max) {
+    return x >= min && x <= max;
+}
+
+function mousePressed() {
+    if (between(mouseX, 0, 800) && between(mouseY, 0, 600)) {
+        started = !started;
+    }
 }
