@@ -2,7 +2,7 @@ var max_speed = 4;
 var bounce = -0.5;
 var life_dec = 2.0;
 var shrink_rate = 2;
-var max_particles = 100;
+var max_particles = 80;
 var all_particles = new particleSystem();
 
 
@@ -40,7 +40,6 @@ function particleSystem() {
             if (this.wanderers[i].isDead()) {
                 this.wanderers.splice(i, 1);
                 this.count--;
-                console.log(i);
             }
             else {
                 this.wanderers[i].display();
@@ -89,7 +88,7 @@ class Particle {
     }
 
     isDead() {
-        if (this.size < 0) {
+        if (this.size < 6) {
             return true;
         }
         else {
@@ -105,8 +104,6 @@ class colorGenerator {
         this.R = random(255);
         this.G = random(255);
         this.B = random(255);
-
-        console.log(this.R);
 
         this.Rspeed = (random(1) > 0.5 ? 1 : -1) * random(this.min_speed, this.max_speed);
         this.Gspeed = (random(1) > 0.5 ? 1 : -1) * random(this.min_speed, this.max_speed);
