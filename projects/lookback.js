@@ -2,16 +2,23 @@ var max_speed = 4;
 var bounce = -0.5;
 var life_dec = 2.0;
 var shrink_rate = 2;
-var max_particles = 80;
+var max_particles = 100;
 var all_particles = new particleSystem();
-
+var button;
 
 function setup() {
-    createCanvas(
+    var canvas = createCanvas(
         window.innerWidth,
         window.innerHeight
       );
+    canvas.parent("sketch");
     background(0);
+
+    // button = createButton('click me');
+    // // put button in same container as the canvas
+    // button.parent("sketch");
+    // // by default this sets position relative to window...
+    // button.position(0, 0);
 
 }
 
@@ -84,6 +91,7 @@ class Particle {
     display() {
         this.color.update();
         fill(this.color.R, this.color.G, this.color.B);
+        stroke(0, 50)
         ellipse(this.location.x, this.location.y, this.size);
     }
 
