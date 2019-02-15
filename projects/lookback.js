@@ -4,7 +4,7 @@ var life_dec = 2.0;
 var shrink_rate = 2;
 var max_particles = 100;
 var all_particles = new particleSystem();
-var button;
+var save_button;
 
 function setup() {
     var canvas = createCanvas(
@@ -14,12 +14,12 @@ function setup() {
     canvas.parent("sketch");
     background(0);
 
-    // button = createButton('click me');
+    // save_button = createButton("Save as PNG");
     // // put button in same container as the canvas
-    // button.parent("sketch");
+    // save_button.parent("sketch");
     // // by default this sets position relative to window...
-    // button.position(0, 0);
-
+    // save_button.position(0, 0);
+    // save_button.mousePressed(saveCanvas(canvas, "woot", "png"));
 }
 
 function draw() {
@@ -53,21 +53,16 @@ function particleSystem() {
             }
 
         }
-        // this.wanderers.array.forEach(particle => {
-            
-
-            
-        // });
     };
 }
 
 class Particle {
     constructor(location) {
         this.location = createVector(location.x, location.y);
-        this.size = 100;
+        this.size = 75;
         this.velocity = createVector(0, 0);
         this.acc = createVector(0, 0);
-        this.angle = 0.0
+        this.angle = 0.0;
 
         this.color = new colorGenerator();
     }
@@ -91,8 +86,17 @@ class Particle {
     display() {
         this.color.update();
         fill(this.color.R, this.color.G, this.color.B);
-        stroke(0, 50)
+
         ellipse(this.location.x, this.location.y, this.size);
+//         this.color.update();
+//         fill(this.color.R, this.color.G, this.color.B, 255-this.size*3);
+//         this.x1 = this.location.x+Math.cos(this.preangle+(2*Math.PI/3))*this.size/2
+//         this.y1 = this.location.y+Math.sin(this.preangle+(2*Math.PI/3))*this.size/2
+//         this.x2 = this.location.x+Math.cos(this.preangle+2*(2*Math.PI/3))*this.size/2
+//         this.y2 = this.location.y+Math.sin(this.preangle+2*(2*Math.PI/3))*this.size/2
+//         this.x3 = this.location.x+Math.cos(this.preangle)*this.size
+//         this.y3 = this.location.y+Math.sin(this.preangle)*this.size
+        stroke(0, 175);
     }
 
     isDead() {
