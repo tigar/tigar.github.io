@@ -11,7 +11,7 @@ function setup() {
 	angleMode(DEGREES);
 	stroke(255, 22);
 	noFill();
-	background(10, 24, 70);
+	background(3, 8, 23);
 }
 
 function draw() {
@@ -27,5 +27,4 @@ function draw() {
     line(x1, y1, x2, y2);
 
     t += 3;
-    console.log(t);
 }
