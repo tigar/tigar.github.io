@@ -1,0 +1,47 @@
+title: Adam Tigar
+author: Adam Tigar
+email: aatigar
+description: >- # this means to ignore newlines until "baseurl:"
+  Carleton Class of 2018, Recruse Center Fall 2018, Skull fracture survivor 2019
+#  baseurl: "/" # the subpath of your site, e.g. /blog
+url: "http://adamtigar.com" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: AdamTigar
+github_username: tigar
+favicon: "./favicon.ico" # set the favicon of the site 
+
+# Build settings
+# theme: moving
+plugins:
+  - jekyll-feed
+
+show_excerpts: false # set to true to show excerpts on the homepage
+
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+
+moving:
+  # avatar_url: "https://i.loli.net/2019/08/26/JzCLhDWPEybZr2T.jpg" # avatar in about page
+  about_you: Carleton 2018, Recruse Center Fall 2018, Skull fracture survivor 2019
+  date_format: "%b %d" # date format of posts in home page
+  back_to: "Home" # In the post page, you have a back button above the title, you can custom the text by yourself.
+
+  # generate social links in about page.
+  social_links:
+    twitter: AdamTigar
+    github: tigar
+    # instagram: 
+    linkedin: aatigar
+
+plugins:
+- jekyll-feed
+- jekyll-seo-tag
