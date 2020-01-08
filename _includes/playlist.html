@@ -1,5 +1,6 @@
 {% for playlist in site.data.playlists %}
 {% if page.title == playlist.playlist %}
+{% if playlist.spotify %}<p class="playlist-meta"><a href="{{ playlist.spotify }}" class="btn">Listen on Spotify</a></p>{% endif %}
 <div class="playlist">
 {% for tracks in playlist.tracks %}
 <div class="playlist-track">
@@ -8,8 +9,10 @@
 <span class="track-artist">{{ tracks.artist }} </span>
 {% if tracks.album and tracks.album != '' %}<span class="track-album"> - {{ tracks.album }}</span>{% endif %}
 </div>
-</div>
+</div><br>
 {% endfor %}
 </div>
+<b>What is this?</b><br>
+Every month I make a playlist full of the music I've really enjoyed that month. I try and not repeat songs month to month, but sometimes it can't be helped. Credit to Katie DeCorah's <a href="https://github.com/katydecorah/spotify-to-jekyll">Spotify-to-Jekyll</a> scraper for making this so much easier!
 {% endif %}
 {% endfor %}
