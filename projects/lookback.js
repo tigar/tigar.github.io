@@ -42,7 +42,7 @@ function particleSystem() {
 
     this.addParticle = function(location) {
         this.count++;
-        append(this.wanderers, new Particle(location));
+        this.wanderers.push(new Particle(location));
     };
 
     this.update = function() {
