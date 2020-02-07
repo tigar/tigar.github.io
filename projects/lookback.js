@@ -5,6 +5,7 @@ var shrink_rate = 2;
 var max_particles = 100;
 var all_particles = new particleSystem();
 var save_button;
+var color_global = 0;
 
 function setup() {
     var canvas = createCanvas(
@@ -12,7 +13,8 @@ function setup() {
         window.innerHeight
       );
     canvas.parent("sketch");
-    background(0);
+    colorMode(HSB);
+    background(0, 0, 0);
 
     // save_button = createButton("Save as PNG");
     // // put button in same container as the canvas
@@ -24,6 +26,8 @@ function setup() {
 
 function draw() {
     all_particles.update();
+    if (color_global > 361) color_global =0;
+    color_global += 10;
 }
 
 function mouseDragged() {
@@ -63,15 +67,14 @@ class Particle {
         this.velocity = createVector(0, 0);
         this.acc = createVector(0, 0);
         this.angle = 0.0;
-
-        this.color = new colorGenerator();
+        this.color = color_global;
     }
 
     update() {
         this.angle += random(0, TWO_PI);
         var magnitude = random(0, 4);
 
-        this.acc.x += cos(this.angle) * magnitude;
+        this.acc.x += cos(this.angle) * magnitude;  
         this.acc.y += sin(this.angle) * magnitude;
         this.acc.limit(3);
 
@@ -81,11 +84,12 @@ class Particle {
         this.location.add(this.velocity);
 
         this.size -= shrink_rate;
+        // this.color += 7;
     }
 
     display() {
-        this.color.update();
-        fill(this.color.R, this.color.G, this.color.B);
+        // this.color.update();
+        fill(this.color, 50, 100);
 
         ellipse(this.location.x, this.location.y, this.size);
 //         this.color.update();
@@ -96,11 +100,11 @@ class Particle {
 //         this.y2 = this.location.y+Math.sin(this.preangle+2*(2*Math.PI/3))*this.size/2
 //         this.x3 = this.location.x+Math.cos(this.preangle)*this.size
 //         this.y3 = this.location.y+Math.sin(this.preangle)*this.size
-        stroke(0, 175);
+        // stroke(0, 175);
     }
 
     isDead() {
-        if (this.size < 6) {
+        if (this.size < 9) {
             return true;
         }
         else {
