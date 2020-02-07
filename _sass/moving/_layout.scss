@@ -276,6 +276,10 @@
   }
 }
 
+.track-artist {
+  font-weight: bold;
+}
+
 .post-content {
   margin-top: 3.2rem;
   margin-bottom: $spacing-unit;
@@ -367,4 +371,13 @@
   .about-content {
     margin-top: 2rem;
   }
+}
+
+.playlist-photo {
+  padding: 1px;
+  border: 1px solid $grey-color-light;
+  width: 18rem;
+  height: 18rem;
+  margin: 0 2rem 0 0;
+  margin-bottom: 30 !important;
 }
