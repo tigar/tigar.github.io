@@ -55,23 +55,29 @@ function particleSystem() {
 
 class Particle {
     constructor(location) {
-        this.location = location;
+        this.location = createVector(location.x, location.y);
         this.size = 75;
         this.velocity = createVector(0, 0);
         this.acc = createVector(0, 0);
         this.angle = 0.0;
         this.color = color_global;
-        this.radius = random(-10,-5)
-        this.pivot = this.location.add(createVector(this.radius,0))
     }
 
-    update() { 
-        this.location.x = this.pivot.x + this.radius * cos(this.angle);
-        this.location.y = this.pivot.y + this.radius * sin(this.angle);
-        this.angle += 0.2
+    update() {
+        this.angle += random(0, TWO_PI);
+        var magnitude = random(0, 4);
+
+        this.acc.x += cos(this.angle) * magnitude;  
+        this.acc.y += sin(this.angle) * magnitude;
+        this.acc.limit(3);
+
+        this.velocity.add(this.acc);
+        this.velocity.limit(6);
+
+        this.location.add(this.velocity);
 
         this.size -= shrink_rate;
-        this.color += 1
+        // this.color += 7;
     }
 
     display() {
